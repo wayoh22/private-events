@@ -36,7 +36,7 @@
         <div class="content">
           <h2 class="title is-2">List of Events</h2>
             <ul>
-              <% @user.events.each do | event | %>
+              <% @user.created_events.each do | event | %>
                 <li><%= event.title %> @ <%= event.location %></li>
               <% end %>
             </ul>

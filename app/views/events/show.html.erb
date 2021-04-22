@@ -1,4 +1,13 @@
 <p id="notice"><%= notice %></p>
 
+<div class="container is-centered">
+  <p class="content has-text-centered">
+    <img class="image" src="https://totalarcherychallenge.com/wp-content/uploads/2019/02/DI9A2773-1024x683.jpg"> 
+    <br></br>
+    <strong><%= @event.title %> @ <%= @event.location%></strong>
+  </p>
+</div>
+
+
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>

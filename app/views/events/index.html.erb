@@ -1,12 +1,12 @@
 <div class="container is-centered">
+  <%# <h1 class="title is-2 has-text-centered">Events</h1> %>
   <div class="columns is-multiline">
   <% @events.each do | event | %>
-    <div class="column is-one-third">
-      <%= event.title %>
-      <br>
-      <%= event.location %>
-      <br>
-      <img src="https://totalarcherychallenge.com/wp-content/uploads/2019/02/DI9A2773-1024x683.jpg">
+    <div class="column is-one-third has-text-centered">
+      <%= link_to event do %>
+        <img src="https://totalarcherychallenge.com/wp-content/uploads/2019/02/DI9A2773-1024x683.jpg">
+      <% end %>
+      <strong><%= event.title %> @ <%=event.location %></strong>
     </div>
   <% end %>
   </div>

@@ -25,32 +25,39 @@
 
     <nav class="navbar" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
-        <a class="navbar-item" href="">
-          <strong>Private Events</strong>
-        </a>
+        <%= link_to root_path, class: "navbar-item" do %>
+          <h1 class="title is-5">Private Events</h1>
+        <% end %>
+
+        <div class="navbar-burger burger" data-target="navbarExample">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
       </div>
 
-      <div class="navbar-menu">
-        <div class="navbar-start">
-          <a class="navbar-item">
-            Home
-          </a>
-
-          <a class="navbar-item">
-            Create Event
-          </a>
-        </div>
-
+      <div id="navbarExample" class="navbar-menu">
         <div class="navbar-end">
           <div class="navbar-item">
-            <div class="buttons">
-              <a class="button">
-                Sign Up
-              </a>
-              <a class="button">
-                Log In
-              </a>
-            </div>
+            <div class="field is-grouped">
+              <p class="control">
+                <%= link_to "New Event", root_path, class: "button" %>
+              </p>
+              <% if user_signed_in? %>
+              <p class="control">
+                <%= link_to current_user.email, edit_user_registration_path, class: "button" %>
+              </p>
+              <p>
+                <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "button" %>
+              </p>
+            <% else %>
+            <p class="control">
+              <%= link_to 'Sign In', new_user_session_path, class: "button" %>
+            </p>
+            <p class="control">
+              <%= link_to 'Sign Up', new_user_registration_path, class: "button" %>
+            </p>
+            <% end %>
           </div>
         </div>
       </div>

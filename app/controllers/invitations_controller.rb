@@ -21,15 +21,15 @@ class InvitationsController < ApplicationController
 
   # POST /invitations or /invitations.json
   def create
-    event = Event.find[params[:event_id]]
-    attending = Invitation.new(event_id: event.id, invitee_id: current_user.id)
+    event = Event.find(params[:event_id])
+    @invitation = Invitation.new(event_id: event.id, invitee_id: current_user.id)
 
     respond_to do |format|
-      if attending.save
-        format.html { redirect_to event_path(@event), notice: "RSVP successful!" }
+      if @invitation.save
+        format.html { redirect_to event_path(event), notice: "RSVP successful!" }
         format.json { render :show, status: :created, location: @event }
       else
-        format.html { redirect_to event_path(@event), notice: "RSVP FAILED!" }
+        format.html { redirect_to event_path(event), notice: "RSVP FAILED!" }
         format.json { render json: @invitation.errors, status: :unprocessable_entity }
       end
     end
@@ -50,6 +50,8 @@ class InvitationsController < ApplicationController
 
   # DELETE /invitations/1 or /invitations/1.json
   def destroy
+    event = Event.find(params[:event_id])
+    @invitation = Invitation.find(params[event_id: @event.id, invitee_id: invitation.invitee.id ])
     @invitation.destroy
     respond_to do |format|
       format.html { redirect_to invitations_url, notice: "Invitation was successfully destroyed." }

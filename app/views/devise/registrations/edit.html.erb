@@ -1,6 +1,6 @@
 <div class="section">
 	<div class="container is-centered">
-	  <div class="columns">
+	  <div class="columns is-variable is-8">
 		  <div class="column is-half">
 			  <h2 class="title is-2">Edit Profile</h2>
           <%= simple_form_for(resource, as: resource_name, url: edit_user_registration_path(resource_name)) do |f| %>
@@ -32,14 +32,28 @@
           </div>
           <% end %>
       </div>
-      <div class="column is-half">
-        <div class="content">
-          <h2 class="title is-2">List of Events</h2>
-            <ul>
-              <% @user.created_events.each do | event | %>
-                <li><%= event.title %> @ <%= event.location %></li>
-              <% end %>
-            </ul>
+    
+    <div class="columns is-variable is-8">
+      <div class="column">
+        <div class="columns">
+          <div class="column">
+            <div class="content">
+              <h2 class="title is-2">List of Created Events</h2>
+                <ul>
+                  <% @user.created_events.each do | event | %>
+                    <li><%= event.title %> @ <%= event.location %></li>
+                  <% end %>
+                </ul>
+            </div>
+            <div class="content">
+              <h2 class="title is-2">Attending These Events</h2>
+                <ul>
+                  <% @user.attended_events.each do | event | %>
+                    <li><%= event.title %> @ <%= event.location %></li>
+                  <% end %>
+                </ul>
+            </div>
+          </div>
         </div>
       </div>
     </div>

@@ -57,6 +57,13 @@ class EventsController < ApplicationController
     end
   end
 
+  def rsvp 
+    @event = event.find(params[:id])
+    @event.attendees << current_user
+    redirect_to @event
+  end
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_event

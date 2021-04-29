@@ -5,9 +5,9 @@
     <img class="image" src="https://totalarcherychallenge.com/wp-content/uploads/2019/02/DI9A2773-1024x683.jpg"> 
     <br></br>
     <strong><%= @event.title %> @ <%= @event.location%></strong>
+    <br></br>
+    <a class="control"></a>
+      <%= link_to "RSVP", invitations_path, :method => :post, class: "button" %>
+    </a>
   </p>
 </div>
-
-
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>

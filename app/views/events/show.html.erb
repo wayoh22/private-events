@@ -10,11 +10,17 @@
       <% if current_user.id == @event.creator_id %>
         <%= link_to "Edit", edit_event_path, class: "button" %>
         <%= link_to "Back", root_path, class: "button" %>
-      <% elsif @event.attendees.include?(current_user) %>
-        <%= link_to "Delete invitation", invitation_path(event_id: @event.id, invitee_id: invitation.invitee.id ), method: :delete, class: "button" %>
+      <%# <% elsif current_user.attended_events %>
+        <p class="content has-text-centered">You're attending!</p>
+        <ul>
+          <% @event.user_invites do |user| %>
+            <li><%= user.email %></li>    
+          <% end %>
+        </ul> %>
+        <%# <%= link_to "Delete RSVP", invitation_path(invitation), method: :delete, class: "button is-small is-dark" %>
       <% else %>
         <%= link_to "RSVP", invitations_path(event_id: @event.id), :method => :post, class: "button" %>
       <% end %>
   </p>
 </div>
-No c
+

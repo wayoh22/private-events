@@ -39,7 +39,9 @@
         <div class="navbar-start">
           <div class="navbar-item">
             <a class="control">
-              <%= link_to "New Event", new_event_path, class: "button" %>
+              <% if user_signed_in? %>
+                <%= link_to "New Event", new_event_path, class: "button" %>
+              <% end%>
             </a>
           </div>
         </div>

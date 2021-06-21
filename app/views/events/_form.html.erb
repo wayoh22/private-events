@@ -21,9 +21,17 @@
 
         <div class="field">
           <div class="control">
+          <%= f.file_field :image %>
+          </div>
+        </div>
+        
+        <div class="field">
+          <div class="control">
           <%= f.button :submit, "Create!", class:"button"%>
           </div>
         </div>
+
+        
 
         <% end %>
       </div>

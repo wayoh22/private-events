@@ -38,7 +38,7 @@
         <div class="columns">
           <div class="column">
             <div class="content">
-              <h2 class="title is-2">List of Created Events</h2>
+              <h2 class="title has-text-centered is-2">Created Events</h2>
                 <ul>
                   <% current_user.created_events.each do | event | %>
                     <li><%= event.title %> @ <%= event.location %></li>
@@ -46,7 +46,7 @@
                 </ul>
             </div>
             <div class="content">
-              <h2 class="title is-2">Attending These Events</h2>
+              <h2 class="title has-text-centered is-2">Attending These Events</h2>
                 <ul>
                   <% current_user.event_invites.each do |invitation| %>
                     <li><%= invitation.event.title %> @ <%= invitation.event.location %></li> 
